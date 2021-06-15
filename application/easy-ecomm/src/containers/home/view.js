@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+
 import {
   SearchOutlined,
   TrophyOutlined,
@@ -14,9 +16,11 @@ import {
   FavoriteOffersTitle,
   FavoriteOffersDescription,
 } from './view.styles';
+
 import { Button, Header, FilterBox, Footer } from '../../components';
 
 const Home = () => {
+  const router = useRouter();
   return (
     <>
       <Header />
@@ -33,6 +37,7 @@ const Home = () => {
           <Row gutter={[16, 16]}>
             <Col span={12}>
               <FilterBox
+                onClick={() => router.push('/category')}
                 title="Categorias"
                 description="Veja os últimos produtos ordenados por categorias!"
                 icon={<ShareAltOutlined style={{ fontSize: '50px', color: 'white' }} />}
@@ -40,6 +45,7 @@ const Home = () => {
             </Col>
             <Col span={12}>
               <FilterBox
+                onClick={() => router.push('/search')}
                 title="Palavra"
                 description="Pesquise por um produto por palavras chaves!"
                 icon={<SearchOutlined style={{ fontSize: '50px', color: 'white' }} />}
@@ -47,6 +53,7 @@ const Home = () => {
             </Col>
             <Col span={12}>
               <FilterBox
+                onClick={() => router.push('/search?sort=mostViewed')}
                 title="Visualizados"
                 description="Veja os últimos produtos mais visualizados!"
                 icon={<TrophyOutlined style={{ fontSize: '50px', color: 'white' }} />}
@@ -55,6 +62,7 @@ const Home = () => {
             <Col span={12}>
               <FilterBox
                 title="Estilo"
+                onClick={() => router.push('/genre')}
                 description="Veja os últimos produtos ordenados por genêros!"
                 icon={<TagsOutlined style={{ fontSize: '50px', color: 'white' }} />}
               />
