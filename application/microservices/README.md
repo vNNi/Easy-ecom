@@ -1,6 +1,8 @@
 # Micro-Services-Example
 Build Amazon Application using Micro services architecture.
 
+To more infos, see `docs/ArchitectureInfos.pdf`, [here](docs/ArchitectureInfos.pdf).
+
 ![arquitetura](docs/Arch.png)
 
 ## Setup

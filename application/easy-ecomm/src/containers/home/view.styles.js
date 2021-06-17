@@ -28,3 +28,21 @@ export const FavoriteOffersDescription = styled.p`
   font-size: ${({ theme }) => theme.fonts.medium};
   padding: 3em 5em 2em;
 `;
+
+export const TextWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 0 2.5em;
+`;
+
+export const PrincipalText = styled.p`
+  font-weight: bold;
+  font-size: ${({ theme }) => theme.fonts.biggest};
+`;
+
+export const SubText = styled.p`
+  font-size: ${({ theme }) => theme.fonts.highest};
+`;

@@ -1,1 +1,1 @@
-export { default } from '../../containers/search';
+export { default, getServerSideProps } from '../../containers/search';

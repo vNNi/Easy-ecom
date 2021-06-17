@@ -1,8 +1,17 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
-First, run the development server:
+Primeiro, rode os micro serviços! é só seguir o README.md, (aqui)[../microservices/README.md].
+
+Ou tentar diretamente daqui:
+
+```bash
+cd ../microservices
+./scripts/start-kafka.sh
+./scripts/create-topics.sh
+./scripts/run-daemons.sh
+```
+
+Segundo, rode o servidor em desenvolvimento:
 
 ```bash
 npm run dev
@@ -10,25 +19,27 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:8080](http://localhost:38080) no browser para ver o resultado!.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Rotas
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- `/` => É a página inicial, explicação do App e todos os links para demais páginas.
+- `/search/:param` => É a página de busca, onde `:param` é um texto simples para pesquisa.
+- `/category/:id` => É a página de filtros por categoria, onde `:id` é a o ID da categoria para filtragem.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+## Guide
 
-To learn more about Next.js, take a look at the following resources:
+### Components
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Desenvolva seus Componentes em: `./src/components`. E os utilize nás páginas.
+Não esqueça de exporta-los: `./src/components/index.js`;
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Pages & Container
 
-## Deploy on Vercel
+Os containers, `./src/containers`, contém toda a lógica de negócio para as páginas, juntando todas as pequenas partes do nosso sistema (componentes e serviços).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Serviços
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Adicione a integração com um <i>Microservice</i> na parte de `./src/services`, onde ficam todas as interações externas e que podem ser fácilmente mudadas.
+

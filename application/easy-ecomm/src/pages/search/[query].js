@@ -1,3 +1,1 @@
-import SearchPage from '../../containers/search';
-
-export default SearchPage;
+export { default, getServerSideProps } from '../../containers/search';

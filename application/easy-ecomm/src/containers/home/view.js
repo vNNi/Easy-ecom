@@ -15,6 +15,9 @@ import {
   WhoWeAreTitle,
   FavoriteOffersTitle,
   FavoriteOffersDescription,
+  PrincipalText,
+  SubText,
+  TextWrapper,
 } from './view.styles';
 
 import { Button, Header, FilterBox, Footer } from '../../components';
@@ -23,12 +26,21 @@ const Home = () => {
   const router = useRouter();
   return (
     <>
-      <Header />
+      <Header logo={<Image width={90} height={90} src="/logo_white.png" />} />
       <Row>
-        <Col span={12}>
-          <p>Some cool text to do later</p>
+        <Col xl={12} md={24} xs={24}>
+          <TextWrapper>
+            <PrincipalText>
+              {' '}
+              Tudo o que você precisa, procura e deseja. Está aqui!
+            </PrincipalText>
+            <SubText>
+              de modo fácil e prático, crie sua lista de compras online baseado nas
+              melhores lojas.
+            </SubText>
+          </TextWrapper>
         </Col>
-        <Col span={12}>
+        <Col xl={12} md={24} xs={24}>
           <Image width={1600} height={1000} src="/home_grocery.jpg" />
         </Col>
       </Row>
@@ -85,7 +97,7 @@ const Home = () => {
         </Col>
       </Row>
       <Row>
-        <Col span={12} style={{ padding: '2em 0' }}>
+        <Col xl={12} md={12} xs={24} style={{ padding: '2em 0' }}>
           <FavoriteOffersTitle>Deixei todas ofertas salvas!</FavoriteOffersTitle>
           <FavoriteOffersDescription>
             Favoritando os produtos sem precisar de um login, é nossa forma de deixar
@@ -95,7 +107,7 @@ const Home = () => {
             <Button>Ver favoritos!</Button>
           </Col>
         </Col>
-        <Col span={12}>
+        <Col xl={12} md={12} xs={24}>
           <Image src="/home_tech.jpg" width={900} height={600} />
         </Col>
       </Row>
