@@ -6,12 +6,19 @@ const theme = {
   },
   text: {
     light: '#ffffff',
+    base: '#404040',
   },
   fonts: {
+    small: '14px',
+    regular: '16px',
     medium: '20px',
+    tall: '22px',
     high: '24px',
     highest: '28px',
     biggest: '36px',
+  },
+  boxShadows: {
+    outerBlack: '0px 2px 12px rgba(81, 81, 81, 0.12)',
   },
 };
 

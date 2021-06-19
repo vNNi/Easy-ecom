@@ -20,7 +20,7 @@ import {
   TextWrapper,
 } from './view.styles';
 
-import { Button, Header, FilterBox, Footer } from '../../components';
+import { Button, Header, FilterBox, Footer, ProductCard } from '../../components';
 
 const Home = () => {
   const router = useRouter();
@@ -82,16 +82,26 @@ const Home = () => {
           </Row>
         </Col>
       </Row>
+      <Row>
+        <Col span={12}>
+          <ProductCard
+            title="Testando com um titulo maneiro"
+            stockCount={10}
+            price="R$ 12"
+            image="https://electrolux.vteximg.com.br/arquivos/ids/194421-1000-1000/Range_76USV_Front_View_Electrolux_1000x1000.png?v=636987981570200000"
+          />
+        </Col>
+      </Row>
       <Row style={{ margin: '3em 0' }}>
         <Col span={24}>
           <WhoWeAreContainer>
             <WhoWeAreTitle>Quem somos?</WhoWeAreTitle>
             <WhoWeAreDescription>
               Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industry's standard dummy text ever since the
-              1500s, when an unknown printer took a galley of type and scrambled it to
-              make a type specimen book. It has survived not only five centuries, but also
-              the leap into electronic typesetting, remaining essentially unchanged.
+              Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,
+              when an unknown printer took a galley of type and scrambled it to make a
+              type specimen book. It has survived not only five centuries, but also the
+              leap into electronic typesetting, remaining essentially unchanged.
             </WhoWeAreDescription>
           </WhoWeAreContainer>
         </Col>
