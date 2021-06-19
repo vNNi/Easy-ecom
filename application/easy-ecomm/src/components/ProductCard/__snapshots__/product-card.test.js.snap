@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[Components] - product card should expect 1`] = `
+exports[`[Components] - product card should render correctly 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .c0 {

@@ -20,7 +20,16 @@ import {
   TextWrapper,
 } from './view.styles';
 
-import { Button, Header, FilterBox, Footer, ProductCard } from '../../components';
+import { Button, Header, FilterBox, Footer, ProductList } from '../../components';
+
+const product = {
+  title: 'Testando com um titulo maneiro',
+  stockCount: 10,
+  price: 'R$ 12',
+  image:
+    'https://electrolux.vteximg.com.br/arquivos/ids/194421-1000-1000/Range_76USV_Front_View_Electrolux_1000x1000.png?v=636987981570200000',
+};
+const productList = new Array(10).fill(product);
 
 const Home = () => {
   const router = useRouter();
@@ -83,14 +92,7 @@ const Home = () => {
         </Col>
       </Row>
       <Row>
-        <Col span={12}>
-          <ProductCard
-            title="Testando com um titulo maneiro"
-            stockCount={10}
-            price="R$ 12"
-            image="https://electrolux.vteximg.com.br/arquivos/ids/194421-1000-1000/Range_76USV_Front_View_Electrolux_1000x1000.png?v=636987981570200000"
-          />
-        </Col>
+        <ProductList products={productList} />
       </Row>
       <Row style={{ margin: '3em 0' }}>
         <Col span={24}>
