@@ -1,8 +1,13 @@
 import { Row, Col } from 'antd';
 
-import { Title, Description } from './view.styles';
-
-import { Header, Footer, ProductList, InputSearch, FilterTag } from '../../components';
+import {
+  Header,
+  Footer,
+  ProductList,
+  InputSearch,
+  FilterTag,
+  ListHead,
+} from '../../components';
 
 const Category = ({ products = [], onSearch, onFilterClick }) => {
   const filters = products.map(item => ({
@@ -45,8 +50,10 @@ const Category = ({ products = [], onSearch, onFilterClick }) => {
           sm={{ span: 10, offset: 8 }}
           xl={{ span: 12, offset: 6 }}
         >
-          <Title> Página de Categoria! </Title>
-          <Description>Filtre pela categoria que mais tem a ver com você!</Description>
+          <ListHead.Title>Página de Categoria!</ListHead.Title>
+          <ListHead.Description>
+            Filtre pela categoria que mais tem a ver com você!
+          </ListHead.Description>
         </Col>
         <Col span={20} offset={2}>
           <ProductList products={products} />

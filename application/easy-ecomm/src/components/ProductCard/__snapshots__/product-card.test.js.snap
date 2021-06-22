@@ -117,6 +117,7 @@ Object {
           <img
             alt=""
             height="100"
+            src="https://ninajohansson.se/wp-content/themes/koji/assets/images/default-fallback-image.png"
             width="120"
           />
         </div>
@@ -134,11 +135,15 @@ Object {
             </span>
             <span
               class="c6"
-            />
+            >
+              0
+            </span>
           </div>
           <p
             class="c7"
-          />
+          >
+            R$ NaN
+          </p>
         </div>
       </div>
     </div>
@@ -176,6 +181,7 @@ Object {
         <img
           alt=""
           height="100"
+          src="https://ninajohansson.se/wp-content/themes/koji/assets/images/default-fallback-image.png"
           width="120"
         />
       </div>
@@ -193,11 +199,15 @@ Object {
           </span>
           <span
             class="product-cardstyles__StockValue-sc-19h0a0q-6 iHYHWm"
-          />
+          >
+            0
+          </span>
         </div>
         <p
           class="product-cardstyles__Price-sc-19h0a0q-7 bObfeN"
-        />
+        >
+          R$ NaN
+        </p>
       </div>
     </div>
   </div>,

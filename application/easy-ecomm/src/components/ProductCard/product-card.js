@@ -16,7 +16,7 @@ const ProductCard = ({
   title,
   price,
   image = 'https://ninajohansson.se/wp-content/themes/koji/assets/images/default-fallback-image.png',
-  stockCount,
+  stock_count: stockCount,
   onClick,
   onFavorite,
 }) => {
