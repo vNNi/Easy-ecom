@@ -1,15 +1,27 @@
+import { useRouter } from 'next/router';
+
 import View from './view';
 import ProductService from '../../services/product';
 
 const Page = ({ products }) => {
-  return <View products={products} />;
+  const router = useRouter();
+  const onSearch = (term, e) => {
+    e.preventDefault();
+    router.push(`/search/${term}`);
+  };
+  const onFilterClick = (e, item) => {
+    e.preventDefault();
+    router.push(`/category/${item?.category}`);
+  };
+
+  return <View products={products} onSearch={onSearch} onFilterClick={onFilterClick} />;
 };
 
 export async function getServerSideProps(ctx) {
-  const { category, query } = ctx.query;
+  const { categoryId = '', query } = ctx.query;
 
   const products = await ProductService.getProducts({
-    filters: { category, term: query },
+    filters: { category: categoryId, term: query },
   });
 
   if (!products) {
@@ -19,7 +31,7 @@ export async function getServerSideProps(ctx) {
   }
 
   return {
-    props: { products },
+    props: { products, categoryId },
   };
 }
 

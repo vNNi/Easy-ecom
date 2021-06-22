@@ -1,4 +1,5 @@
 module.exports = {
-  setupFilesAfterEnv: ['./jest.setup.js'],
+  resetMocks: false,
+  setupFilesAfterEnv: ['./jest.setup.js', 'jest-localstorage-mock'],
   testEnvironment: 'jsdom',
 };

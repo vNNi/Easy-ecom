@@ -10,7 +10,6 @@ const ProductService = {
 
       const res = await fetch(url);
       const { products } = await res.json();
-
       return products?.data;
     } catch (e) {
       return [];

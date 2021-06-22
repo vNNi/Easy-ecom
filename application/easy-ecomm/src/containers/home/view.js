@@ -25,7 +25,7 @@ import { Button, Header, FilterBox, Footer, ProductList } from '../../components
 const product = {
   title: 'Testando com um titulo maneiro',
   stockCount: 10,
-  price: 'R$ 12',
+  price: '12',
   image:
     'https://electrolux.vteximg.com.br/arquivos/ids/194421-1000-1000/Range_76USV_Front_View_Electrolux_1000x1000.png?v=636987981570200000',
 };

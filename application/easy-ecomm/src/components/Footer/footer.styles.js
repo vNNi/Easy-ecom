@@ -21,7 +21,6 @@ export const FooterBottom = styled.div`
   color: ${({ theme }) => theme.text.light};
   background-color: ${({ theme }) => theme.colors.third};
   width: 100%;
-  height: 50px;
 `;
 
 export const FooterBottomText = styled.p`
