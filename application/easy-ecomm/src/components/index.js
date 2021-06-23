@@ -6,4 +6,5 @@ export { default as ProductList } from './ProductList';
 export { default as ProductCard } from './ProductCard';
 export { default as ListHead } from './ListHead';
 export { default as FilterTag } from './FilterTag';
+export { default as ShippingForm } from './ShippingForm';
 export { default as InputSearch } from './InputSearch';
