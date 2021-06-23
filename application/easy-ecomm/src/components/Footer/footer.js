@@ -7,11 +7,19 @@ const FooterComp = () => {
       <Container>
         <Row>
           <Col span={12} offset={6}>
-            <Row gutter={20}>
-              <Col span={6}>
+            <Row gutter={[20, 10]}>
+              <Col
+                lg={{ span: 6 }}
+                md={{ span: 12, offset: 6 }}
+                sm={{ span: 12, offset: 6 }}
+              >
                 <Item>Icon</Item>
               </Col>
-              <Col span={6}>
+              <Col
+                lg={{ span: 6 }}
+                md={{ span: 12, offset: 6 }}
+                sm={{ span: 12, offset: 6 }}
+              >
                 <p>
                   <Item>Categorias</Item>
                 </p>
@@ -19,7 +27,11 @@ const FooterComp = () => {
                   <Item>Busca</Item>
                 </p>
               </Col>
-              <Col span={6}>
+              <Col
+                lg={{ span: 6 }}
+                md={{ span: 12, offset: 6 }}
+                sm={{ span: 12, offset: 6 }}
+              >
                 <p>
                   <Item>Favoritos</Item>
                 </p>
@@ -27,7 +39,7 @@ const FooterComp = () => {
                   <Item>Suporte</Item>
                 </p>
               </Col>
-              <Col span={6}>
+              <Col span={6} sm={{ span: 12, offset: 6 }}>
                 <p>
                   <Item>Redes sociais</Item>
                 </p>

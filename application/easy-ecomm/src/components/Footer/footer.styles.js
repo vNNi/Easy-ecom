@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.footer`
   width: 100%;
-  height: 300px;
+  min-height: 300px;
   background-color: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.text.light};
   padding: 4em 0;
