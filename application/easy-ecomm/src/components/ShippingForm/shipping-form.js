@@ -1,46 +1,26 @@
-import { Form, Input } from 'antd';
+import { Input } from 'antd';
+import { DollarOutlined } from '@ant-design/icons';
 
-import Button from '../Button';
-
-const layout = {
-  labelCol: { span: 8 },
-  wrapperCol: { span: 16 },
-};
-const tailLayout = {
-  wrapperCol: { offset: 8, span: 16 },
-};
-
-const ShippingForm = () => {
-  const onFinish = values => {
-    console.log('Success:', values);
-  };
-
-  const onFinishFailed = errorInfo => {
-    console.log('Failed:', errorInfo);
-  };
-
+const ShippingForm = ({ onChange, onEstimate, ...props }) => {
   return (
-    <Form
-      {...layout}
-      name="basic"
-      initialValues={{ remember: true }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-    >
-      <Form.Item
-        label="CEP:"
-        name="cep"
-        rules={[{ required: true, message: 'Preencha seu CEP!' }]}
-      >
-        <Input />
-      </Form.Item>
-
-      <Form.Item {...tailLayout}>
-        <Button type="primary" htmlType="submit">
-          Calcular
-        </Button>
-      </Form.Item>
-    </Form>
+    <Input
+      style={{ height: 'fit-content' }}
+      placeholder="Digite seu CEP..."
+      suffix={
+        <div
+          style={{ cursor: 'pointer' }}
+          role="button"
+          tabIndex={0}
+          onClick={onEstimate}
+          onKeyDown={onEstimate}
+        >
+          <DollarOutlined />
+        </div>
+      }
+      onChange={onChange}
+      inputMode="numeric"
+      {...props}
+    />
   );
 };
 
