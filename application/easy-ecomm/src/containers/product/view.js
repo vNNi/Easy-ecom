@@ -22,9 +22,7 @@ const View = ({ product }) => {
     }
   };
 
-  const onEstimate = e => {
-    console.log('estimate', e);
-  };
+  const onEstimate = e => ({ e });
 
   const {
     title,

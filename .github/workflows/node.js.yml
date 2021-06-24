@@ -25,5 +25,4 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    - run: cd application/easy-ecomm
-    - run: npm install
+    - run: cd application/easy-ecomm && npm install
