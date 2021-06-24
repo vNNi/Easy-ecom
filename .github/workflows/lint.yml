@@ -1,0 +1,33 @@
+name: Lint Code
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  code:
+    name: Lint code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+
+      - name: Install yarn
+        run: npm install -g yarn
+
+      - name: Install Deps
+        working-directory: ./application/easy-ecomm
+        run: yarn
+
+      - name: Run Lint code
+        working-directory: ./application/easy-ecomm
+        run: yarn lint
