@@ -9,6 +9,7 @@ const ProductList = ({ products = [], onItemClick }) => {
         {products?.map(product => {
           return (
             <Col
+              key={product?.id}
               xl={{ span: 5, md: 3, sm: 2 }}
               style={{ display: 'flex', justifyContent: 'center' }}
             >

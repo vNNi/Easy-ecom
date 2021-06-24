@@ -13,6 +13,7 @@ import {
 } from './product-card.styles';
 
 const ProductCard = ({
+  id,
   title,
   price,
   image = 'https://ninajohansson.se/wp-content/themes/koji/assets/images/default-fallback-image.png',
@@ -21,7 +22,7 @@ const ProductCard = ({
   onFavorite,
 }) => {
   return (
-    <Container onClick={onClick}>
+    <Container onClick={e => onClick(e, id)}>
       <IconContainer>
         <HeartOutlined onClick={onFavorite} />
       </IconContainer>

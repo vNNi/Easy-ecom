@@ -9,7 +9,7 @@ import {
   ListHead,
 } from '../../components';
 
-const Category = ({ products = [], onSearch, onFilterClick }) => {
+const Category = ({ products = [], onSearch, onFilterClick, onItemClick }) => {
   const filters = products.map(item => ({
     sort: item?.sort,
     category: item?.category,
@@ -34,7 +34,7 @@ const Category = ({ products = [], onSearch, onFilterClick }) => {
         >
           <Row style={{ justifyContent: 'space-evenly' }}>
             {filters.map(({ sort, category }) => (
-              <Col>
+              <Col key={sort}>
                 <FilterTag
                   sort={sort}
                   category={category}
@@ -56,7 +56,7 @@ const Category = ({ products = [], onSearch, onFilterClick }) => {
           </ListHead.Description>
         </Col>
         <Col span={20} offset={2}>
-          <ProductList products={products} />
+          <ProductList products={products} onItemClick={onItemClick} />
         </Col>
       </Row>
       <Footer />

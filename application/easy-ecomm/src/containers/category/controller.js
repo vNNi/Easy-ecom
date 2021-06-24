@@ -14,7 +14,19 @@ const Page = ({ products }) => {
     router.push(`/category/${item?.category}`);
   };
 
-  return <View products={products} onSearch={onSearch} onFilterClick={onFilterClick} />;
+  const onItemClick = (e, id) => {
+    e.preventDefault();
+    router.push(`/product/${id}`);
+  };
+
+  return (
+    <View
+      products={products}
+      onSearch={onSearch}
+      onFilterClick={onFilterClick}
+      onItemClick={onItemClick}
+    />
+  );
 };
 
 export async function getServerSideProps(ctx) {
