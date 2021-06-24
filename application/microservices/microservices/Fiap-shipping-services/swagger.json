@@ -1,0 +1,103 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"version": "1.0.0",
+		"title": "Fiap Microservices - Shipping service",
+		"description": "Get Estimate from product",
+		"license": {
+			"name": "MIT",
+			"url": "https://opensource.org/licenses/MIT"
+		}
+	},
+	"host": "localhost:4022",
+	"basePath": "/",
+	"tags": [{
+		"name": "Shipping",
+		"description": "API for estimate product shipping"
+	}],
+	"schemes": ["http"],
+	"consumes": ["application/json"],
+	"produces": ["application/json"],
+	"paths": {
+		"/shipping/estimate/{zipCode}": {
+			"post": {
+				"tags": ["Shipping"],
+				"description": "Shipping Product",
+				"parameters": [
+          {
+            "in": "path",
+            "name": "zipCode",
+            "description": "Get estimate Shipping from zipCode",
+            "type": "integer",
+            "example": "03448010"
+          },
+          {
+            "in": "body",
+            "description": "Get estimate by a product dimensions",
+            "schema": {
+              "$ref": "#/definitions/Estimate"
+            }
+          }
+        ],
+        "produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"estimate": 	{
+              "Codigo": "04510",
+              "Valor": "24,80",
+              "PrazoEntrega": "7",
+              "ValorSemAdicionais": "24,80",
+              "ValorMaoPropria": "0,00",
+              "ValorAvisoRecebimento": "0,00",
+              "ValorValorDeclarado": "0,00",
+              "EntregaDomiciliar": "S",
+              "EntregaSabado": "N",
+              "Erro": "0"
+            }
+          },
+          "404": {
+          "estimate": null
+          },
+          "500": {
+            "error": "something went wrong"
+          }
+				}
+			}
+		}
+	},
+	"definitions": {
+		"Estimate": {
+			"required": [
+				"length",
+				"weight",
+				"height",
+        "width",
+        "depth"
+			],
+			"properties": {
+				"product": {
+          "type": "object",
+          "properties": {
+            "length": {
+              "type": "string"
+            },
+            "weight": {
+              "type": "string"
+            },
+            "height": {
+              "type": "string"
+            },
+            "width": {
+              "type": "string"
+            },
+            "depth": {
+              "type": "string"
+            }
+          }
+        }
+      }
+		}
+	}
+}

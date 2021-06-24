@@ -21,12 +21,10 @@ const ShippingService = {
           },
         }),
       };
-      console.log('ur', url);
       const res = await fetch(url, fetchData);
       const data = await res.json();
       return data;
     } catch (e) {
-      console.log('error', e);
       return { error: e };
     }
   },

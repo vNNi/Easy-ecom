@@ -1,0 +1,117 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"version": "1.0.0",
+		"title": "Fiap Microservices - Product service",
+		"description": "Search products, filtering by id, category, genre or term",
+		"license": {
+			"name": "MIT",
+			"url": "https://opensource.org/licenses/MIT"
+		}
+	},
+	"host": "localhost:3000",
+	"basePath": "/",
+	"tags": [{
+		"name": "Product",
+		"description": "Product Domain"
+	}],
+	"schemes": ["http"],
+	"consumes": ["application/json"],
+	"produces": ["application/json"],
+	"paths": {
+		"/products/": {
+			"get": {
+				"tags": ["Products"],
+				"description": "Search Products",
+				"parameters": [
+          {
+            "in": "query",
+            "name": "category",
+            "description": "filter by a category id",
+            "type": "string",
+            "example": "category=ED"
+          },
+          {
+            "in": "query",
+            "name": "term",
+            "description": "filter by a term",
+            "type": "string",
+            "example": "term=iphone"
+          },
+          {
+            "in": "query",
+            "name": "genre",
+            "description": "filter by a genre",
+            "type": "string",
+            "example": "genre=eletrodoméstico"
+          }
+        ],
+        "produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"products": [
+              {
+                "id": 1,
+                "title": "Geladeira brastemp frost free",
+                "description": "Geladeira Brastemp Frost Free Evox - Inverse 540,6L Ative BRO80 AK com as melhores condições você encontra no site do Magalu. Confira!",
+                "sort": "eletrodoméstico",
+                "price": 5496,
+                "category": "ED",
+                "visited": 0,
+                "created_at": "2021-05-18T03:49:41.000Z",
+                "updated_at": "2021-05-18T03:49:41.000Z"
+              }
+            ]
+					}
+				}
+			}
+		},
+    "/products/{productId}": {
+      "get": {
+       "tags": ["Products"],
+				"description": "Get detail of a product",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "productId",
+            "description": "filter by id",
+            "type": "integer",
+            "example": "2"
+          }
+        ],
+        "responses": {
+					"200": {
+						"products": [
+              {
+                  "id": 2,
+                  "title": "iPhone XR Apple 64GB Preto",
+                  "description": "iPhone XR Apple 64GB Preto 6,1” 12MP iOS com as melhores condições você encontra no site do Magalu. Confira!",
+                  "sort": "celulares",
+                  "price": 3719.07,
+                  "category": "TE",
+                  "visited": 6,
+                  "created_at": "2021-05-29T22:45:56.000Z",
+                  "updated_at": "2021-05-29T22:45:56.000Z",
+                  "purchased": 1,
+                  "stock_count": 4,
+                  "reports_open": 0
+              }
+            ]
+					},
+          "404": {
+            "product": null
+          },
+          "500": {
+            "product": [],
+             "error": "something went wrong"
+          }
+				},
+        "produces": [
+					"application/json"
+				]
+      }
+    }
+	}
+}

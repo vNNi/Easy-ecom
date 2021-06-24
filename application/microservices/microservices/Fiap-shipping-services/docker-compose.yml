@@ -1,0 +1,50 @@
+version: "3.2"
+services:
+  nodejs:
+    build: .
+    networks:
+      - frontend
+      - backend
+    environment:
+      - MYSQL_HOST=mba-mysql-shipping
+      - MYSQL_USER=admin
+      - MYSQL_PASS=admin123
+      - MYSQL_DB=mba_microservices_shipping
+    volumes:
+      - ./www/:/var/www/html/
+    ports:
+      - "4022:4022"
+    container_name: mba-shipping-service
+  mysql:
+    image: mysql:5.7
+    ports:
+      - 3322:3306
+    networks:
+      - backend
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin123
+      - MYSQL_DATABASE=mba_microservices_shipping
+    volumes:
+      - mysql_shipping:/var/lib/mysql
+    container_name: mba-mysql-shipping
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:4.7
+    depends_on:
+      - mysql
+    networks:
+      - backend
+    ports:
+      - "30002:80"
+    environment:
+      - PMA_HOST=mba-mysql-shipping
+      - PMA_PORT= 3322
+    volumes:
+      - /sessions
+    container_name: mba-phpmyadmin-shipping
+networks:
+  frontend:
+  backend:
+volumes:
+  mysql_shipping:

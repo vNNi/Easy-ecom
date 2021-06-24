@@ -14,7 +14,10 @@ const View = ({ product }) => {
     const { value } = e.target;
     setShipping({});
     if (value?.length === 8) {
-      const shippingEstimated = await ShippingService.postEstimate({ zipCode: value });
+      const shippingEstimated = await ShippingService.postEstimate({
+        product,
+        zipCode: value,
+      });
       setShipping(shippingEstimated);
     }
   };
