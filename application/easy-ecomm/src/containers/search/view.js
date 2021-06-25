@@ -4,7 +4,7 @@ import { Row, Col } from 'antd';
 
 import { Header, InputSearch, ProductList, ListHead, Footer } from '../../components';
 
-const View = ({ products, onSearch, onPressEnter, term }) => {
+const View = ({ products, onSearch, onPressEnter, term, onProductClick }) => {
   const [userTerm, setUserTerm] = useState(term);
 
   const onChange = e => {
@@ -39,7 +39,7 @@ const View = ({ products, onSearch, onPressEnter, term }) => {
           </ListHead.Description>
         </Col>
         <Col span={20} offset={2}>
-          <ProductList products={products} />
+          <ProductList products={products} onItemClick={onProductClick} />
         </Col>
       </Row>
       <Footer />

@@ -24,7 +24,7 @@ describe('[Services] - Favorites', () => {
       FavoritesService.addFavorite({ id: 1 });
       expect(localStorage.setItem).toHaveBeenCalledWith(
         'favorites_easy_ecomm',
-        JSON.stringify([productMock, { id: 1 }])
+        JSON.stringify([productMock, { id: 1, isFavorited: true }])
       );
     });
 

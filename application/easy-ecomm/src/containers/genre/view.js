@@ -9,13 +9,7 @@ import {
   ListHead,
 } from '../../components';
 
-const Category = ({
-  products = [],
-  onSearch,
-  onFilterClick,
-  onItemClick,
-  onFavorite,
-}) => {
+const View = ({ products = [], onSearch, onFilterClick, onItemClick, onFavorite }) => {
   const filters = products.map(item => ({
     sort: item?.sort,
     category: item?.category,
@@ -56,10 +50,8 @@ const Category = ({
           sm={{ span: 10, offset: 8 }}
           xl={{ span: 12, offset: 6 }}
         >
-          <ListHead.Title>Página de Categoria!</ListHead.Title>
-          <ListHead.Description>
-            Filtre pela categoria que mais tem a ver com você!
-          </ListHead.Description>
+          <ListHead.Title>Página de Filtros por Tipo!</ListHead.Title>
+          <ListHead.Description>Escolha a tag!</ListHead.Description>
         </Col>
         <Col span={20} offset={2}>
           <ProductList
@@ -74,4 +66,4 @@ const Category = ({
   );
 };
 
-export default Category;
+export default View;

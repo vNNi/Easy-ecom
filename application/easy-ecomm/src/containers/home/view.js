@@ -20,16 +20,7 @@ import {
   TextWrapper,
 } from './view.styles';
 
-import { Button, Header, FilterBox, Footer, ProductList } from '../../components';
-
-const product = {
-  title: 'Testando com um titulo maneiro',
-  stockCount: 10,
-  price: '12',
-  image:
-    'https://electrolux.vteximg.com.br/arquivos/ids/194421-1000-1000/Range_76USV_Front_View_Electrolux_1000x1000.png?v=636987981570200000',
-};
-const productList = new Array(10).fill(product);
+import { Button, Header, FilterBox, Footer } from '../../components';
 
 const Home = () => {
   const router = useRouter();
@@ -40,7 +31,6 @@ const Home = () => {
         <Col xl={12} md={24} xs={24}>
           <TextWrapper>
             <PrincipalText>
-              {' '}
               Tudo o que você precisa, procura e deseja. Está aqui!
             </PrincipalText>
             <SubText>
@@ -91,9 +81,6 @@ const Home = () => {
           </Row>
         </Col>
       </Row>
-      <Row>
-        <ProductList products={productList} />
-      </Row>
       <Row style={{ margin: '3em 0' }}>
         <Col span={24}>
           <WhoWeAreContainer>
@@ -116,7 +103,7 @@ const Home = () => {
             rápido e fácil, você ter suas ofertas rápidamente e sem nenhuma burocrácia!
           </FavoriteOffersDescription>
           <Col span={12} offset={6}>
-            <Button>Ver favoritos!</Button>
+            <Button onClick={() => router.push('/favorites')}>Ver favoritos!</Button>
           </Col>
         </Col>
         <Col xl={12} md={12} xs={24}>

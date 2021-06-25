@@ -95,6 +95,7 @@ Object {
             aria-label="heart"
             class="anticon anticon-heart"
             role="img"
+            tabindex="-1"
           >
             <svg
               aria-hidden="true"
@@ -159,6 +160,7 @@ Object {
           aria-label="heart"
           class="anticon anticon-heart"
           role="img"
+          tabindex="-1"
         >
           <svg
             aria-hidden="true"

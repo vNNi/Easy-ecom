@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 
 import View from './view';
 import ProductService from '../../services/product';
+import FavoritesService from '../../services/favorites';
 
 const Page = ({ products }) => {
   const router = useRouter();
@@ -19,12 +20,17 @@ const Page = ({ products }) => {
     router.push(`/product/${id}`);
   };
 
+  const onFavorite = item => {
+    FavoritesService.addFavorite(item);
+  };
+
   return (
     <View
       products={products}
       onSearch={onSearch}
       onFilterClick={onFilterClick}
       onItemClick={onItemClick}
+      onFavorite={onFavorite}
     />
   );
 };

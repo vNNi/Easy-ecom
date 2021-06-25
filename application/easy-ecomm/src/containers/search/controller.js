@@ -14,21 +14,26 @@ const Page = ({ products, term }) => {
     router.push(`/search/${value}`);
   };
 
+  const onProductClick = (e, id) => {
+    router.push(`/product/${id}`);
+  };
+
   return (
     <View
       products={products}
       onSearch={onSearch}
       onPressEnter={onPressEnter}
       term={term}
+      onProductClick={onProductClick}
     />
   );
 };
 
 export async function getServerSideProps(ctx) {
-  const { query } = ctx.query;
+  const { query = '', sort } = ctx.query;
 
   const products = await ProductService.getProducts({
-    filters: { term: query },
+    filters: { term: query, order: `${sort},asc` },
   });
 
   if (!products) {

@@ -6,11 +6,11 @@ const FavoritesService = {
     return null;
   },
   addFavorite: product => {
-    const favorites = JSON.parse(localStorage.getItem(FAVORITE_KEY));
+    const favorites = JSON.parse(localStorage.getItem(FAVORITE_KEY)) || [];
     const favorited = favorites?.find(({ id }) => id === product?.id);
 
     if (favorited) return false;
-    const newFavorites = [...favorites].concat(product);
+    const newFavorites = [...favorites].concat({ ...product, isFavorited: true });
     window.localStorage.setItem(FAVORITE_KEY, JSON.stringify(newFavorites));
     return true;
   },
