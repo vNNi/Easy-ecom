@@ -21,6 +21,7 @@ Object {
           >
             <input
               class="ant-input"
+              id="input-search"
               placeholder="input search text"
               type="text"
               value=""
@@ -70,6 +71,7 @@ Object {
         >
           <input
             class="ant-input"
+            id="input-search"
             placeholder="input search text"
             type="text"
             value=""
