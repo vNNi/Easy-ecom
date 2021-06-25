@@ -1,0 +1,144 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"version": "1.0.0",
+		"title": "Fiap Microservices - Order service",
+		"description": "Create and read Orders by user",
+		"license": {
+			"name": "MIT",
+			"url": "https://opensource.org/licenses/MIT"
+		}
+	},
+	"host": "localhost:4008",
+	"basePath": "/",
+	"tags": [{
+		"name": "Order Service",
+		"description": "API for Order domain"
+	}],
+	"schemes": ["http"],
+	"consumes": ["application/json"],
+	"produces": ["application/json"],
+	"paths": {
+		"/order/trace/{orderId}": {
+			"get": {
+				"tags": ["Order"],
+				"description": "Get order trace from orderId",
+				"parameters": [
+          {
+            "in": "path",
+            "name": "orderId",
+            "description": "get order from id",
+            "type": "string",
+            "example": "1"
+          }
+        ],
+        "produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"orders": [
+              {
+                  "id": 1,
+                  "title": "Geladeira brastemp frost free",
+                  "description": "Geladeira Brastemp Frost Free Evox - Inverse 540,6L Ative BRO80 AK com as melhores condições você encontra no site do Magalu. Confira!",
+                  "user_id": 1,
+                  "product_id": 3,
+                  "product_price": 5496,
+                  "completed": 0,
+                  "created_at": "2021-05-23T04:42:15.000Z",
+                  "updated_at": "2021-05-23T04:42:15.000Z",
+                  "shipping_estimate": 30
+              }
+            ]
+					},
+          "500": {
+            "orders": [],
+            "error": "something went wrong"
+          },
+          "404": {
+            "orders": [],
+            "error": "NOT FOUND TRACE"
+          }
+				}
+			}
+		},
+    "/order/create/": {
+      "post": {
+				"tags": ["Order"],
+				"description": "Create order trace from product and user id",
+				"parameters": [
+          {
+            "in": "body",
+            "description": "create order from product id and user id",
+            "schema": {
+              "$ref": "#/definitions/Order"
+            }
+          }
+        ],
+        "produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"product": {
+              "product_id": 2,
+              "user_id": 3,
+              "title": "Smartphone Samsumg 5G 12MP",
+              "description": "64GB, tela 2x pixel, Android. Com carregador",
+              "shipping_estimate": 4,
+              "product_price": 3500,
+              "completed": true
+            }
+					},
+          "500": {
+            "product": null,
+            "error": "something went wrong"
+          },
+          "202": {
+           "product": null
+          }
+				}
+			}
+    }
+	},
+  "definitions": {
+    "Order": {
+			"required": [
+				"product_id",
+				"user_id",
+				"companies"
+			],
+			"properties": {
+        "product": {
+          "type": "object",
+          "properties": {
+            "product_id": {
+              "type": "integer",
+              "uniqueItems": true
+            },
+            "user_id": {
+              "type": "integer",
+              "uniqueItems": true
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "shipping_estimate": {
+              "type": "integer"
+            },
+            "product_price": {
+              "type": "integer"
+            },
+            "completed": {
+              "type": "boolean"
+            }
+          }
+        }
+			}
+		}
+	}
+}

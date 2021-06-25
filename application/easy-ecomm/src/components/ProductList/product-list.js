@@ -8,7 +8,7 @@ const ProductList = ({ products = [], onItemClick, onFavorite }) => {
     if (typeof window === 'undefined') {
       return false;
     }
-    return FavoritesService.getFavorites().find(({ id }) => id === productId);
+    return FavoritesService.getFavorites()?.find(({ id }) => id === productId);
   };
   return (
     <Container>
