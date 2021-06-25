@@ -19,6 +19,8 @@ export const seed = knex =>
           height: "20",
           width: "20",
           depth: "0",
+          image:
+            "https://a-static.mlcdn.com.br/618x463/geladeira-refrigerador-electrolux-frost-free-duplex-371l-dfn41-branca/magazineluiza/013080601/939410e836a1dac2eb3d039c488026d5.jpg",
         },
         {
           id: 2,
@@ -34,6 +36,8 @@ export const seed = knex =>
           height: "20",
           width: "20",
           depth: "0",
+          image:
+            "https://a-static.mlcdn.com.br/618x463/iphone-xr-apple-64gb-preto-61-12mp-ios/magazineluiza/155610600/046ca7441970f5677a701277854122db.jpg",
         },
         {
           id: 3,
@@ -49,6 +53,8 @@ export const seed = knex =>
           height: "20",
           width: "20",
           depth: "0",
+          image:
+            "https://a-static.mlcdn.com.br/618x463/bicicleta-aro-29-21v-shimano-dropp-z3-tam-15-suspensao-preto-azul-e-rosa-lubrificante-cera-120-ml/rolmart5/9726289323/3f0df3cb307bc437077ab021c55de05b.jpg",
         },
       ])
     );

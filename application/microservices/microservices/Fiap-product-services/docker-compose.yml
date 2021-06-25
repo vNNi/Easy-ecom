@@ -41,11 +41,11 @@ services:
     ports:
       - "30002:80"
     environment:
-      - PMA_HOST=mba-mysql-app
+      - PMA_HOST=mba-product-db
       - PMA_PORT= 3306
     volumes:
       - /sessions
-    container_name: mba-phpmyadmin-app
+    container_name: mba-phpmyadmin-product-app
   zookeeper:
     image: 'bitnami/zookeeper:latest'
     networks:
