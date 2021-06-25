@@ -1,0 +1,30 @@
+name: Test Micro Service Product
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  code:
+    name: Unit test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+
+      - name: Install Deps
+        working-directory: ./application/microservices/microservices/Fiap-product-services
+        run: npm i
+
+      - name: Run Test
+        working-directory: ./application/microservices/microservices/Fiap-product-services
+        run: npm run test

@@ -1,4 +1,4 @@
-name: EasyEcomm
+name: EasyEcomm Publish Docker
 
 on:
   push:
