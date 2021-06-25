@@ -30,17 +30,12 @@ const Page = ({ products, term }) => {
 };
 
 export async function getServerSideProps(ctx) {
-  const { query = '', sort } = ctx.query;
+  const { query = '', sort = 'price' } = ctx.query;
 
-  const products = await ProductService.getProducts({
-    filters: { term: query, order: `${sort},asc` },
-  });
-
-  if (!products) {
-    return {
-      notFound: true,
-    };
-  }
+  const products =
+    (await ProductService.getProducts({
+      filters: { term: query, order: `${sort},asc` },
+    })) || [];
 
   return {
     props: { products, term: query },

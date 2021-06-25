@@ -22,3 +22,18 @@ export const ShippingPrice = styled.p`
 export const ShippingDays = styled.p`
   color: ${({ theme }) => theme.colors.secondary};
 `;
+
+export const ShippingError = styled.p`
+  color: ${({ theme }) => theme.text.error};
+`;
+
+export const OrderSuccess = styled.h3`
+  color: ${({ theme }) => theme.text.success};
+  font-size: ${({ theme }) => theme.fonts.medium};
+  font-weight: bold;
+`;
+
+export const OrderError = styled.h3`
+  color: ${({ theme }) => theme.text.error};
+  font-size: ${({ theme }) => theme.fonts.medium};
+`;

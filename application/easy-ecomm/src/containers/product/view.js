@@ -1,12 +1,24 @@
 import { Row, Col } from 'antd';
 import { useState } from 'react';
-import { Price, Line, FreightLabel, ShippingPrice, ShippingDays } from './view.styles';
+import {
+  Price,
+  Line,
+  FreightLabel,
+  ShippingPrice,
+  ShippingDays,
+  ShippingError,
+  OrderSuccess,
+  OrderError,
+} from './view.styles';
 import { Header, ListHead, ShippingForm, Button } from '../../components';
 import { currencyFormatter } from '../../utils';
+
 import ShippingService from '../../services/shipping';
+import OrderService from '../../services/order';
 
 const View = ({ product }) => {
   const [shipping, setShipping] = useState({});
+  const [order, setOrder] = useState({});
 
   if (!product?.price) return <h2>Produto não encontrado :( </h2>;
 
@@ -19,6 +31,19 @@ const View = ({ product }) => {
         zipCode: value,
       });
       setShipping(shippingEstimated);
+    }
+  };
+
+  const onBuyButtonClick = async () => {
+    const created = await OrderService.createOrder({
+      product,
+      shipping,
+      user: { id: 1 },
+    });
+    if (!created.error) {
+      setOrder({ success: true, ...created });
+    } else {
+      setOrder({ error: 'Não foi possível adicionar ao carrinho' });
     }
   };
 
@@ -56,7 +81,9 @@ const View = ({ product }) => {
         </Col>
         <Col>
           {shipping.error && !shipping.estimate && (
-            <p>Produto não está Disponível para entregar nesete CEP</p>
+            <ShippingError>
+              Produto não está Disponível para entregar nesete CEP
+            </ShippingError>
           )}
           {shipping.estimate && (
             <div>
@@ -78,8 +105,16 @@ const View = ({ product }) => {
             </Line>
           </Col>
           <Col span={6}>
-            <Button id="buy-button">COMPRAR</Button>
+            <Button id="buy-button" onClick={onBuyButtonClick}>
+              COMPRAR
+            </Button>
           </Col>
+        </Row>
+        <Row>
+          <Col span={24} style={{ textAlign: 'center' }}>
+            {order?.success && <OrderSuccess>Pedido criado com sucesso!</OrderSuccess>}
+          </Col>
+          <Col span={24}>{order?.error && <OrderError>{order.error}</OrderError>}</Col>
         </Row>
       </div>
     </>
