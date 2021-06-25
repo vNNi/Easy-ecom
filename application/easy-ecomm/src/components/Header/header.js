@@ -9,7 +9,7 @@ import { Container } from './header.styles';
 
 const Header = ({ logo }) => {
   return (
-    <Container>
+    <Container id="header">
       <Row between="xs">
         <Col span={12}>{logo}</Col>
         <Col span={12}>

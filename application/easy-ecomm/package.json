@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint src",
-    "test": "jest --maxWorkers=25%"
+    "test": "jest --maxWorkers=25%",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
@@ -24,6 +26,7 @@
     "babel-eslint": "^10.1.0",
     "babel-jest": "^27.0.2",
     "babel-plugin-styled-components": "latest",
+    "cypress": "^7.6.0",
     "eslint": "^7.28.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",

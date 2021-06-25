@@ -9,7 +9,7 @@ export async function getServerSideProps(ctx) {
   const {
     query: { productId = '' },
   } = ctx;
-  const product = await ProductService.getProduct(productId);
+  const product = (await ProductService.getProduct(productId)) || {};
   return { props: { productId, product } };
 }
 

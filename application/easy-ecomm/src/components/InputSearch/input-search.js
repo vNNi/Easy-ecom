@@ -6,6 +6,7 @@ const InputSearch = ({ onSearch, ...props }) => {
   return (
     <Container>
       <Input.Search
+        id="input-search"
         placeholder="input search text"
         onSearch={onSearch}
         enterButton

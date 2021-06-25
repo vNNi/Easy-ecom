@@ -11,6 +11,9 @@
     "airbnb",
     "plugin:prettier/recommended"
   ],
+  "globals": {
+    "cy": true
+  },
   "env": {
     "browser": true,
     "commonjs": true,

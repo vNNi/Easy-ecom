@@ -8,7 +8,7 @@ import ShippingService from '../../services/shipping';
 const View = ({ product }) => {
   const [shipping, setShipping] = useState({});
 
-  if (!product) return <h2>Produto não encontrado :( </h2>;
+  if (!product?.price) return <h2>Produto não encontrado :( </h2>;
 
   const onChange = async e => {
     const { value } = e.target;
@@ -74,11 +74,11 @@ const View = ({ product }) => {
         <Row align="middle" style={{ margin: '3em 0' }}>
           <Col span={14}>
             <Line>
-              <Price>À partir de: {currencyFormatter({ value: price })}</Price>
+              <Price id="price">À partir de: {currencyFormatter({ value: price })}</Price>
             </Line>
           </Col>
           <Col span={6}>
-            <Button>COMPRAR</Button>
+            <Button id="buy-button">COMPRAR</Button>
           </Col>
         </Row>
       </div>

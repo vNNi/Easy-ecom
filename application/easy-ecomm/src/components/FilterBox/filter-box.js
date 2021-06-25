@@ -4,7 +4,7 @@ import { Container, Description, IconContainer, Title } from './filter-box.style
 const FilterBox = ({ key, title, description, icon, onClick }) => {
   const Icon = icon || <FilterFilled style={{ fontSize: '50px', color: 'white' }} />;
   return (
-    <Container onClick={e => onClick(key, e)}>
+    <Container onClick={e => onClick(key, e)} id={key||title}>
       <IconContainer>{Icon}</IconContainer>
       <Title>{title}</Title>
       <Description>{description}</Description>
