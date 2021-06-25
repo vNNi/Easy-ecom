@@ -3,7 +3,34 @@ Build Amazon Application using Micro services architecture.
 
 To more infos, see `docs/ArchitectureInfos.pdf`, [here](docs/ArchitectureInfos.pdf).
 
-![arquitetura](docs/Arch.png)
+![arquitetura](/application/easy-ecomm/docs/arch.png)
+
+## CI
+
+#### Flow
+
+![arquitetura](/application/easy-ecomm/docs/ci:cd_flow.png)
+
+### Tests
+
+1. Tests Front -  `.github/workflows/test.yml`.
+2. Tests Back - `.github/workflows/test_product_microservice.yml`.
+
+#### E2E
+ ```sh 
+    npm run cypress:run
+ ```
+
+### Deploys
+
+#### Docker Image
+
+Image name:
+> viniciuskomninakis/easy-ecomm#latest
+
+In CI we deploy, here:
+
+1. `.github/workflows/docker-publish.yml`
 
 ## Setup
 
@@ -31,7 +58,16 @@ If step `3` fails, please try:
 
 Or follow each micro service README.
 
-## Run migrations
+## Run Front End
+
+Running locally:
+
+```sh
+cd application/easy-ecom
+yarn
+yarn dev
+```
+## Run Backend - migrations
 
 ### Inside each ./microservices
 
@@ -47,7 +83,7 @@ Inside docker or with mysql configured in you machine, run:
 
 > `./node_modules/knex/bin/cli.js seed:run --esm`
 
-## Technologies
+## Technologies - Micro Services
 
 1. 🛠 - Javascript - Programming language
 2. 🚀 - Express - Server framework
@@ -57,3 +93,10 @@ Inside docker or with mysql configured in you machine, run:
 5. ✉️ - AVSC - Buffer parser
 6. 🔮 - Node-config - Configuration file lib (from environment and yml)
 7. 🧨 - Opossum - Lib for Circuit breaker
+
+## Technologies - Front-end
+
+1. 🛠 - Javascript - Programming language
+2. 🚀 - NextJs - Server & React framework
+3. ⚒️  - Styled Components - CSS-IN-JS Lib
+4. ⚙️ - Antd - Grid Style system
