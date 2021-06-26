@@ -1,7 +1,7 @@
 # Easy Ecomm
 Build Amazon Application using Micro services architecture.
 
-To more infos, see `docs/ArchitectureInfos.pdf`, [here](docs/ArchitectureInfos.pdf).
+To more infos, see `docs/ArchitectureInfos.pdf`, [here](/application/easy-ecomm/docs/architecture.pdf).
 
 ![arquitetura](/application/easy-ecomm/docs/arch.png)
 
