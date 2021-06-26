@@ -5,6 +5,16 @@ To more infos, see `docs/ArchitectureInfos.pdf`, [here](/application/easy-ecomm/
 
 ![arquitetura](/application/easy-ecomm/docs/arch.png)
 
+### Video de apresentação!
+
+<div align="left">
+      <a href="https://www.youtube.com/watch?v=f6ky276GYNs">
+         <img src="https://img.youtube.com/vi/f6ky276GYNs/0.jpg"
+         alt="easy ecomm video!"
+         style="width:100%;">
+      </a>
+</div>
+
 ## CI
 
 #### Flow
